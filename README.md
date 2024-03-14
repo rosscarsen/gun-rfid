@@ -2,6 +2,16 @@
 
 ## Getting Started
 
+## 安装插件
+
+```yaml
+dependencies:
+  gun_rfid:
+    git:
+      url: https://github.com/rosscarsen/gun-rfid.git
+      ref: main
+```
+
 ## RFID 图文
 
 ![RFID說明](example/markdown-images/RFID說明.jpg)
