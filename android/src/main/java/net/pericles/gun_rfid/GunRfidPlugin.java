@@ -38,7 +38,7 @@ public class GunRfidPlugin implements FlutterPlugin, MethodCallHandler {
     ///
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
     /// when the Flutter Engine is detached from the Activity
-    private FlutterEngine flutterEngine;
+
     private MethodChannel channel;
     private Context context;
     // 声明一个UHFRManager类型的变量
@@ -68,7 +68,7 @@ public class GunRfidPlugin implements FlutterPlugin, MethodCallHandler {
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
         channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "gun_rfid");
         channel.setMethodCallHandler(this);
-        flutterEngine = flutterPluginBinding.getFlutterEngine();
+
         context = flutterPluginBinding.getApplicationContext();
         binaryMessenger = flutterPluginBinding.getBinaryMessenger();
     }
@@ -324,7 +324,7 @@ public class GunRfidPlugin implements FlutterPlugin, MethodCallHandler {
                         case KeyEvent.KEYCODE_F4:// 6100
                         case KeyEvent.KEYCODE_F7:// H3100
                             Log.i("onReceive", "onReceive: 按键按下");
-                            binaryMessenger = flutterEngine.getDartExecutor().getBinaryMessenger();
+
                             MethodChannel flutterChannel = new MethodChannel(binaryMessenger, "net.pericles.gun_rfid/keyMethodChannel");
                             Log.d("isReader", "isReader: "+isReader);
                             //如果当前是盘点状态,停止盘点
